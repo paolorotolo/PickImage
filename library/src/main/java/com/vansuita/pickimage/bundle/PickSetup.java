@@ -21,6 +21,7 @@ public class PickSetup implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String title;
+    private String description;
     private int titleColor;
 
     private int backgroundColor;
@@ -98,6 +99,15 @@ public class PickSetup implements Serializable {
 
     public PickSetup setTitle(String title) {
         this.title = title;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public PickSetup setDescription(String description) {
+        this.description = description;
         return this;
     }
 

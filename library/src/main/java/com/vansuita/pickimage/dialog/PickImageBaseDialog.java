@@ -51,6 +51,7 @@ public abstract class PickImageBaseDialog extends DialogFragment implements IPic
     private CardView card;
     private LinearLayout llButtons;
     private TextView tvTitle;
+    private TextView tvDescription;
     private TextView tvCamera;
     private TextView tvGallery;
     private TextView tvCancel;
@@ -165,6 +166,7 @@ public abstract class PickImageBaseDialog extends DialogFragment implements IPic
     private void onBindViews(View v) {
         llButtons = (LinearLayout) v.findViewById(R.id.buttons_holder);
         tvTitle = (TextView) v.findViewById(R.id.title);
+        tvDescription = (TextView) v.findViewById(R.id.description);
         tvCamera = (TextView) v.findViewById(R.id.camera);
         tvGallery = (TextView) v.findViewById(R.id.gallery);
         tvCancel = (TextView) v.findViewById(R.id.cancel);
@@ -235,6 +237,14 @@ public abstract class PickImageBaseDialog extends DialogFragment implements IPic
 
             tvCancel.setText(setup.getCancelText());
             tvTitle.setText(setup.getTitle());
+
+            if (setup.getDescription() == null || setup.getDescription().isEmpty()) {
+                tvDescription.setVisibility(View.GONE);
+            } else {
+                tvDescription.setVisibility(View.VISIBLE);
+                tvDescription.setText(setup.getDescription());
+            }
+
             tvProgress.setText(setup.getProgressText());
 
             showProgress(false);
